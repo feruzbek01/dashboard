@@ -21,7 +21,6 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -822,26 +821,26 @@ export const medicalproBranding = {
 export const themeColors = [
   {
     name: 'blue-theme',
-    color: 'red',
+    color: '#1A97F5',
   },
   {
     name: 'green-theme',
-    color: 'blue',
+    color: '#03C9D7',
   },
   {
     name: 'purple-theme',
-    color: 'black',
+    color: '#7352FF',
   },
   {
     name: 'red-theme',
-    color: 'green',
+    color: '#FF5C8E',
   },
   {
     name: 'indigo-theme',
-    color: 'red',
+    color: '#1E4DB7',
   },
   {
-    color: 'orange',
+    color: '#FB9678',
     name: 'orange-theme',
   },
 ];

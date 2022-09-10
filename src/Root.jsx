@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./RootStyle.css";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FiSettings } from "react-icons/fi";
@@ -6,20 +6,8 @@ import { Route, Routes } from "react-router-dom";
 
 import {
   Sidebar,
-  // Footer,
   Navbar,
   ThemeSettings,
-  // Button,
-  // Cart,
-  // Chat,
-  // Notification,
-  // UserProfile,
-  // SparkLine,
-  // LineChart,
-  // Stacked,
-  // Pie,
-  // ChartsHeader,
-  // Header,
 } from "./components";
 
 import {
@@ -43,10 +31,33 @@ import {
 import { useStateContext } from "./context/ContextProvider";
 
 export const Root = () => {
-  const { activeMenu, setThemeSettings, themeSettings , currentColor, currentMode} = useStateContext();
+  const {
+    activeMenu,
+    setThemeSettings,
+    themeSettings,
+    currentColor,
+    currentMode,
+    setCurrentColor,
+    setCurrentMode,
+  } = useStateContext();
+
+  
+  useEffect(() => {
+    const currentThemeColor = localStorage.getItem("colorMode");
+    const currentThemeMode = localStorage.getItem("themeMode");
+    if (currentThemeColor && currentThemeMode) {
+      setCurrentColor(currentThemeColor);
+      setCurrentMode(currentThemeMode);
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
-    <div className={`flex relative dark:bg-main-dark-bg ${currentMode === 'Dark' ? 'dark': ''} `}>
+    <div
+      className={`flex relative dark:bg-main-dark-bg ${
+        currentMode === "Dark" ? "dark" : ""
+      } `}
+    >
       <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
         <TooltipComponent content="Settings" position="Top">
           <button
